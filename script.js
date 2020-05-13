@@ -1,8 +1,8 @@
 "use strict";
 
-// Урок 1. Здание 2.
+// Урок 1. Здание 1.
 const degreeC = 39;
-alert((9 / 5) * degreeC + 32);
+//alert((9 / 5) * degreeC + 32);
 
 // Урок 1. Здание 2.
 let name,
