@@ -4,9 +4,14 @@
  * Сложение двух чисел
  * @param {number} a первый аргумент
  * @param {number} b второй аргумент
+ * @throws {Error} если входными параметрами были не числа
  * @returns {number} a+b
  */
 function addition(a, b) {
+    if (!(Number(a)) || !(Number(b))) {
+        throw new Error('Входные параметры должны быть числами')
+    }
+
     return a + b;
 }
 
@@ -14,9 +19,14 @@ function addition(a, b) {
  * Разность двух чисел
  * @param {number} a уменьшаемое 
  * @param {number} b вычитаемое
+ * @throws {Error} если входными параметрами были не числа
  * @returns {number} a-b
  */
 function subtraction(a, b) {
+    if (!(Number(a)) || !(Number(b))) {
+        throw new Error('Входные параметры должны быть числами')
+    }
+
     return a - b;
 }
 
@@ -24,9 +34,14 @@ function subtraction(a, b) {
  * Произведение двух чисел
  * @param {number} a множимое 
  * @param {number} b множитель
+ * @throws {Error} если входными параметрами были не числа
  * @returns {number} a*b
  */
 function multiplication(a, b) {
+    if (!(Number(a)) || !(Number(b))) {
+        throw new Error('Входные параметры должны быть числами')
+    }
+
     return a * b;
 }
 
@@ -34,9 +49,14 @@ function multiplication(a, b) {
  * Частное двух чисел
  * @param {number} a делимое 
  * @param {number} b делитель
+ * @throws {Error} если входными параметрами были не числа
  * @returns {number} a-b
  */
 function division(a, b) {
+    if (!(Number(a)) || !(Number(b))) {
+        throw new Error('Входные параметры должны быть числами')
+    }
+
     return a / b;
 }
 
@@ -44,24 +64,31 @@ function division(a, b) {
  * 
  * @param {number} arg1 первый аргумент
  * @param {number} arg2 второй аргумент
- * @param {String} operation сложение, вычитание, произведение, деление
- * @returns {number} результат операции. Если ввели несуществующую операцию, то null
+ * @param {String} operation '+', '-', '*', '/'
+ * @throws {Error} Если ввели несуществующую операцию
+ * @returns {number} результат операции. 
  */
 function mathOperation(arg1, arg2, operation) {
     switch (operation) {
-        case 'сложение':
+        case '+':
             return addition(arg1, arg2);
             break;
-        case 'вычитание':
+        case '-':
             return subtraction(arg1, arg2);
             break;
-        case 'произведение':
+        case '*':
             return multiplication(arg1, arg2);
             break;
-        case 'деление':
+        case '/':
             return division(arg1, arg2);
             break;
         default:
-            return null;
+            throw new Error('Указали непредусмотренну операцию. Доступны только "+", "-", "*", "/"');
     }
 }
+
+console.log(mathOperation(6, 8, '+'));
+console.log(mathOperation(6, 8, '-'));
+console.log(mathOperation(6, 8, '*'));
+console.log(mathOperation(6, 8, '/'));
+console.log(mathOperation(6, 8, 'Сделай бочку'));
