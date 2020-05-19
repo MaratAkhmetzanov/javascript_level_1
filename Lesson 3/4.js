@@ -15,10 +15,8 @@ const products = [
     }
 ];
 
-products.forEach(function (product) {
+products.forEach((product) => {
     product.price *= .85;
 })
 
-console.log(products[0]);
-console.log(products[1]);
-console.log(products[2]);
+console.log(products);
