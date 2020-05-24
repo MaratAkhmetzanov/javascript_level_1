@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const products = [
     {
@@ -28,7 +28,7 @@ const products = [
 ];
 
 //Проверка, есть ли свойство «photos» и пустое ли оно. Если массив пустой, то значение будет 0;
-let productsWithPhotos = products.filter(product => (product.photos) && (product.photos != 0));
+let productsWithPhotos = products.filter(product => ('photos' in product) && (product.photos.length > 0));
 console.log(productsWithPhotos);
 
 //Sort сравнивает свойство price;

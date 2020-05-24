@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const products = [
     {
@@ -16,7 +16,7 @@ const products = [
 ];
 
 products.forEach((product) => {
-    product.price *= .85;
+    product.price *= 0.85;
 })
 
 console.log(products);

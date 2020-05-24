@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let i = 2;
 let j = 0;
