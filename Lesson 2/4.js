@@ -8,10 +8,11 @@
  * @returns {number} a+b
  */
 function addition(a, b) {
-    if (!(Number(a)) || !(Number(b))) {
+    a = Number(a);
+    b = Number(b);
+    if (isNaN(a) || isNaN(b)) {
         throw new Error('Входные параметры должны быть числами')
     }
-
     return a + b;
 }
 
@@ -23,10 +24,11 @@ function addition(a, b) {
  * @returns {number} a-b
  */
 function subtraction(a, b) {
-    if (!(Number(a)) || !(Number(b))) {
+    a = Number(a);
+    b = Number(b);
+    if (isNaN(a) || isNaN(b)) {
         throw new Error('Входные параметры должны быть числами')
     }
-
     return a - b;
 }
 
@@ -38,10 +40,11 @@ function subtraction(a, b) {
  * @returns {number} a*b
  */
 function multiplication(a, b) {
-    if (!(Number(a)) || !(Number(b))) {
+    a = Number(a);
+    b = Number(b);
+    if (isNaN(a) || isNaN(b)) {
         throw new Error('Входные параметры должны быть числами')
     }
-
     return a * b;
 }
 
@@ -53,10 +56,11 @@ function multiplication(a, b) {
  * @returns {number} a-b
  */
 function division(a, b) {
-    if (!(Number(a)) || !(Number(b))) {
+    a = Number(a);
+    b = Number(b);
+    if (isNaN(a) || isNaN(b)) {
         throw new Error('Входные параметры должны быть числами')
     }
-
     return a / b;
 }
 
