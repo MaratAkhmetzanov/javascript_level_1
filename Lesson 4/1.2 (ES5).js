@@ -12,7 +12,7 @@ function Post(author, text, date) {
  */
 Post.prototype.edit = function (newText) {
     this.text = newText;
-}
+};
 
 function AttachedPost(author, text, date) {
     Post.call(this, author, text, date);
@@ -27,7 +27,7 @@ AttachedPost.prototype.constructor = AttachedPost;
  */
 AttachedPost.prototype.makeTextHighlighted = function () {
     this.highlighted = true;
-}
+};
 
 const post1 = new Post('Andew', 'Hi', 'yesterday');
 console.log(post1);

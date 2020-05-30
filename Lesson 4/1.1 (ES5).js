@@ -15,7 +15,7 @@ function Product(name, price) {
  */
 Product.prototype.make25PercentDiscount = function () {
     this.price *= 0.75;
-}
+};
 
 const product1 = new Product('bag', 5000);
 

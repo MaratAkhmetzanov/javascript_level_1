@@ -4,13 +4,13 @@ let mover = {
 
     /**
      * Получение новых координат игрока
-     * @returns {{x:Int, y:int}} Возвращает новые координаты игрока на основе нажатой клавиши на Numpad
+     * @returns {{x:int, y:int}} Возвращает новые координаты игрока на основе нажатой клавиши на Numpad
      */
     getNextPosition(key) {
         const nextPosition = {
             x: player.x,
             y: player.y
-        }
+        };
 
         switch (key.code) {
             case 'Numpad1':

@@ -16,5 +16,4 @@ const questions = [
         answer: 3,
         variants: ['a', 'b', 'c', 'd']
     }
-
-]
+];
