@@ -1,0 +1,16 @@
+.cartPanel {
+    width: 400px;
+    padding: 10px;
+}
+
+.productRemoveBtn:hover {
+    cursor: pointer;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.fa-trash-alt{
+    cursor: pointer;
+}
