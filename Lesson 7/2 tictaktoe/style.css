@@ -1,0 +1,18 @@
+#game {
+    width: 150px;
+    margin: 50px auto;
+}
+
+table{
+    border-spacing: 0;
+    border: 0;
+}
+
+#game td {
+    box-sizing: border-box;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+}
