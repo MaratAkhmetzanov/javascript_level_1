@@ -80,7 +80,7 @@ class Snake {
      * Заменяет координаты головы в зависимости от направления.
      * @param {Settings} settings настройки для выяснения размеров доски
      */
-    performStepThroughTheWall(settings) {
+    stepThroughTheWall(settings) {
         switch (this.direction) {
             case "down":
                 this.body[0].y = 1;

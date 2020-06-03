@@ -65,7 +65,7 @@ class Game {
     doTick() {
         this.snake.performStep();
         if (this.board.isNextStepToWall(this.snake.body[0])) {
-            this.snake.performStepThroughTheWall(this.settings);
+            this.snake.stepThroughTheWall(this.settings);
         }
         if (this.isGameLost()) {
             return;
