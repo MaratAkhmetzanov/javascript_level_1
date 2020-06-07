@@ -3,7 +3,6 @@
 class Widget {
   constructor() {
     this.historyEl = document.querySelector('.history');
-    this.dndStatus = false;
   }
 
   /**
@@ -11,14 +10,64 @@ class Widget {
    * @param {array} historyList 
    * @param {Calls} calls 
    */
-  init(historyList, calls) {
+  init(historyList, calls, dndStatus = false, filterValue = 'all') {
     this.history = historyList;
     this.calls = calls;
+    this.dndStatus = dndStatus;
+    document.querySelector('.search-filter').value = filterValue;
     this.fillHistory();
     this.addHistoryBtnsEvents();
     this.addDndToggleEvent();
     this.addNumfieldTextboxChangeEvent();
     this.addNumfieldBtnClickEvent();
+    this.addFilterChangeEvent();
+  }
+
+  /**
+   * Переключает состояние ДНД
+   */
+  dndToggleHandler() {
+    this.dndStatus = !this.dndStatus;
+    if (this.dndStatus) {
+      document.querySelector('.header-dnd').classList.add('selected');
+    } else { document.querySelector('.header-dnd').classList.remove('selected'); }
+  }
+
+  /**
+   * Добавление обработчик клика на кнопку ДНД
+   */
+  addDndToggleEvent() {
+    const btn = document.querySelector('.header-dnd');
+    btn.addEventListener('click', this.dndToggleHandler.bind(this));
+  }
+
+  /**
+   * Показать все скрытые строки в истории
+   */
+  showHidden() {
+    const hiddenRows = document.querySelector('.history').querySelectorAll('.hidden');
+    hiddenRows.forEach(element => element.classList.remove('hidden'));
+  }
+
+  /**
+   * Скрывает все строки не подходящие под фильтр
+   */
+  applyFilter() {
+    this.showHidden();
+    const filterSelect = document.querySelector('.search-filter');
+
+    if (filterSelect.value != 'all') {
+      const rows = document.querySelector('.history').querySelectorAll(`.history-row:not([data-call-type = ${filterSelect.value}])`);
+      rows.forEach(element => element.classList.add('hidden'));
+    }
+  }
+
+  /**
+   * Добавляет слушатель на фильтр
+   */
+  addFilterChangeEvent() {
+    const select = document.querySelector('.search-filter');
+    select.addEventListener('change', this.applyFilter.bind(this));
   }
 
   /**
@@ -27,7 +76,7 @@ class Widget {
   fillHistory() {
     this.historyEl.innerHTML = '';
     this.history.forEach(element => {
-      this.historyEl.innerHTML += `<div class="history-row">
+      this.historyEl.innerHTML += `<div class="history-row" data-call-type="${element.callType}">
             <div class="history-row-wrp">
               <span class="history-row-icon ${element.callType}"></span>
               <span class="history-row-name">${element.name}</span>
@@ -67,29 +116,11 @@ class Widget {
   }
 
   /**
-   * Переключает состояние ДНД
-   */
-  dndToggleHandler() {
-    this.dndStatus = !this.dndStatus;
-    if (this.dndStatus) {
-      document.querySelector('.header-dnd').classList.add('selected');
-    } else { document.querySelector('.header-dnd').classList.remove('selected'); }
-  }
-
-  /**
-   * Добавление обработчик клика на кнопку ДНД
-   */
-  addDndToggleEvent() {
-    const btn = document.querySelector('.header-dnd');
-    btn.addEventListener('click', this.dndToggleHandler.bind(this));
-  }
-
-  /**
    * Обработчик изменения значения текстового поля.
    * Активирует кнопку звонка, если ввели хотя бы один символ
    * и деактивирует, если поле пустое
    */
-  numfieldTextboxChangeEventHandler() {
+  numfieldTextboxChangeHandler() {
     const btn = document.querySelector('.numfield-btn');
     if (this.value.length > 0) {
       btn.disabled = false;
@@ -103,7 +134,7 @@ class Widget {
    */
   addNumfieldTextboxChangeEvent() {
     const textbox = document.querySelector('.numfield-textbox');
-    textbox.addEventListener('input', this.numfieldTextboxChangeEventHandler);
+    textbox.addEventListener('input', this.numfieldTextboxChangeHandler);
   }
 
   /**

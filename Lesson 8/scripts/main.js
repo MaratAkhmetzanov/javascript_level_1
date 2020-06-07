@@ -4,5 +4,5 @@ window.addEventListener('load', () => {
     const widget = new Widget();
     const calls = new Calls();
 
-    widget.init(historyList, calls);
+    widget.init(historyList, calls, false);
 });
