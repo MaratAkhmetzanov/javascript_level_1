@@ -118,7 +118,6 @@ class Snake {
      * @returns {boolean}
      */
     isSnakeEatsItself() {
-
         for (let i = 1; i < this.body.length; i++) {
             if ((this.body[i].x == this.body[0].x) && (this.body[i].y == this.body[0].y)) {
                 return true;
