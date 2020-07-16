@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <title>Widget</title>
+  </head>
+
+  <body>
+    <div class="widget">
+      <div class="header">
+        <h3 class="header-title">История звонков</h3>
+        <button class="header-dnd">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="53"
+            height="24"
+            viewBox="0 0 53 24"
+          >
+            <path
+              d="M0 12C0 5.373 5.373 0 12 0h29c6.627 0 12 5.373 12 12s-5.373 12-12 12H12C5.373 24 0 18.627 0 12z"
+            />
+            <path
+              fill="#fff"
+              fill-rule="evenodd"
+              d="M12 18a6 6 0 100-12 6 6 0 000 12zm3-5.5a.5.5 0 100-1H9a.5.5 0 000 1h6z"
+              clip-rule="evenodd"
+            />
+            <path
+              fill="#fff"
+              d="M22.867 16V7.469h2.52c.754 0 1.422.168 2.004.504a3.43 3.43 0 011.359 1.43c.32.617.48 1.324.48 2.12v.428c0 .809-.162 1.52-.486 2.133a3.372 3.372 0 01-1.377 1.418c-.594.332-1.275.498-2.045.498h-2.455zm1.483-7.336v6.152h.966c.778 0 1.373-.242 1.788-.726.418-.488.63-1.188.638-2.098v-.474c0-.926-.201-1.633-.603-2.122-.403-.488-.987-.732-1.752-.732H24.35zM37.475 16h-1.483L32.19 9.947V16h-1.483V7.469h1.483l3.814 6.076V7.469h1.47V16zm1.752 0V7.469h2.52c.753 0 1.421.168 2.003.504a3.43 3.43 0 011.36 1.43c.32.617.48 1.324.48 2.12v.428c0 .809-.162 1.52-.487 2.133a3.372 3.372 0 01-1.376 1.418c-.594.332-1.276.498-2.045.498h-2.455zm1.482-7.336v6.152h.967c.777 0 1.373-.242 1.787-.726.418-.488.63-1.188.639-2.098v-.474c0-.926-.202-1.633-.604-2.122-.402-.488-.986-.732-1.752-.732H40.71z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="search">
+        <input
+          type="text"
+          class="search-textbox"
+          placeholder="Поиск по имени/номеру"
+        />
+        <select class="search-filter">
+          <option class="search-filter-item" value="all">Все звонки</option>
+          <option value="incoming">Входящие</option>
+          <option value="outgoing">Исходящие</option>
+        </select>
+      </div>
+      <div class="history">
+      </div>
+      <div class="numfield">
+        <input
+          type="text"
+          class="numfield-textbox"
+          placeholder="Введите номер или контакт"
+        />
+        <button class="numfield-btn" disabled="disabled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="#FFFFFF"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.6 16.775v2.89a1.923 1.923 0 01-1.313 1.833 1.934 1.934 0 01-.792.094 19.13 19.13 0 01-8.331-2.958 18.806 18.806 0 01-5.793-5.78A19.042 19.042 0 012.408 4.5 1.923 1.923 0 013.55 2.564c.245-.108.51-.164.778-.164h2.896a1.933 1.933 0 011.93 1.657c.123.925.35 1.833.676 2.707a1.923 1.923 0 01-.434 2.033l-1.226 1.224a15.43 15.43 0 005.792 5.78l1.226-1.223a1.933 1.933 0 012.037-.433c.876.326 1.786.552 2.713.674a1.931 1.931 0 011.66 1.956z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="scripts/calls.js"></script>
+    <script src="scripts/history-list.js"></script>
+    <script src="scripts/widget.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
